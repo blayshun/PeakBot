@@ -1,7 +1,7 @@
 # PeakBot is an automated bot designed to respond to incorrect uses of "sneak peek" when the user uses "peak" instead.
 # this bot will utilize the Tweepy library
 import tweepy
-import time
+import time     # utilized to pause the bot and refresh every ten minutes
 
 # Credentials -------------------------------------------------------------------------------------------------------
 
@@ -53,3 +53,4 @@ for tweet in tweepy.Cursor(api.search, search).items(retrievetweets):
 
 while True:
     search_and_respond()
+    time.sleep(600)    # the bot will pause and refresh every ten minutes
