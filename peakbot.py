@@ -29,7 +29,7 @@ Peek – (noun) a quick or furtive look; (verb) look quickly
 I'm sure you didn't mean to sneak the top of a mountain anywhere.
 '''
 
-retrievetweets = '10' # the number of tweets the bot will be interacting with
+retrievetweets = '15' # the number of tweets the bot will be interacting with
 
 user_history = [] # keeps a list of usernames to ensure the bot does not spam users
 
@@ -43,7 +43,7 @@ for tweet in tweepy.Cursor(api.search, search).items(retrievetweets):
             continue                    # continues iteration if a user in [user_history] is matched
         else: api.update_status("@" + username + " " + response, in_reply_to_status_id = tweetID)
         print("Successfully informed the user @" + username + " twitter ID: " + tweetID)    # else, responds to the user
-        user_history.append(username)   # appends 'username' to [user_history] to prevent repeats
+        user_history.append(test_user)   # appends 'username' to [user_history] to prevent repeats
 
     except tweepy.TweepError as e:
         print(e.reason)
