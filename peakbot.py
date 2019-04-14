@@ -42,7 +42,7 @@ for tweet in tweepy.Cursor(api.search, search).items(retrievetweets):
         if test_user in user_history:
             continue                    # continues iteration if a user in [user_history] is matched
         else: api.update_status("@" + username + " " + response, in_reply_to_status_id = tweetID)
-        print("Successfully informed the user @" + username)    # else, responds to the user
+        print("Successfully informed the user @" + username + " twitter ID: " + tweetID)    # else, responds to the user
         user_history.append(username)   # appends 'username' to [user_history] to prevent repeats
 
     except tweepy.TweepError as e:
