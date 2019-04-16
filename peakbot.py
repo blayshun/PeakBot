@@ -5,10 +5,10 @@ import time     # utilized to pause the bot and refresh every ten minutes
 
 # Credentials -------------------------------------------------------------------------------------------------------
 
-consumer_key = 'consumer key'
-consumer_secret = 'consumer secret'
-access_token = 'access token'
-access_token_secret = 'access token secret'
+consumer_key = 'consumer_key'
+consumer_secret = 'consumer_secret'
+access_token = 'access_token'
+access_token_secret = 'access_token_secret'
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
@@ -22,7 +22,7 @@ def search_and_respond():
     search = '"sneak peak"' # the phrase the bot will be correcting
 
     response = '''
-    
+
     Peak – (noun) the pointed top of a mountain.; (verb) to reach a highest point ; (adj.) maximum
 
     Peek – (noun) a quick or furtive look; (verb) look quickly
@@ -30,7 +30,7 @@ def search_and_respond():
     I'm sure you didn't mean to sneak the top of a mountain anywhere.
     '''
 
-    retrievetweets = '15' # the number of tweets the bot will be interacting with
+    retrievetweets = 15 # the number of tweets the bot will be interacting with
 
     user_history = [] # keeps a list of usernames to ensure the bot does not spam users
 
@@ -43,7 +43,7 @@ def search_and_respond():
             if test_user in user_history:
                 continue                    # continues iteration if a user in [user_history] is matched
             else: api.update_status("@" + username + " " + response, in_reply_to_status_id = tweetID)
-            print("Successfully informed the user @" + username + " twitter ID: " + tweetID)    # else, responds to the user
+            print("Successfully informed the user @" + username)    # else, responds to the user
             user_history.append(test_user)   # appends 'username' to [user_history] to prevent repeats
 
         except tweepy.TweepError as e:
